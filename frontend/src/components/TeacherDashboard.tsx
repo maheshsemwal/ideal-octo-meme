@@ -193,7 +193,7 @@ export default function TeacherDashboard() {
     
     try {
       // Using the backend endpoint to get Excel file
-      window.location.href = `http://localhost:5000/api/session/${currentSession.id}/attendance/download`;
+      window.location.href = `https://ideal-octo-meme.onrender.com/api/session/${currentSession.id}/attendance/download`;
       
       toast({
         title: "Export Started",

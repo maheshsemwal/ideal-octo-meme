@@ -79,7 +79,7 @@ export const useAppStore = create<AppState>()(
       createSession: async (teacherId, subject, section, course) => {
         try {
           // Call the backend API to create a session
-          const response = await axios.post('http://localhost:5000/api/start-session', {
+          const response = await axios.post('https://ideal-octo-meme.onrender.com/api/start-session', {
             subject,
             section,
             course
@@ -125,7 +125,7 @@ export const useAppStore = create<AppState>()(
       
       generateOtp: async (sessionId: string) => {
         try {
-          const response = await axios.post('http://localhost:5000/api/generate-otp', {
+          const response = await axios.post('https://ideal-octo-meme.onrender.com/api/generate-otp', {
             sessionId
           });
           //@ts-ignore
@@ -228,7 +228,7 @@ export const useAppStore = create<AppState>()(
       // Fetch attendance records from backend
       fetchAttendanceRecords: async (sessionId) => {
         try {
-          const response = await axios.get(`http://localhost:5000/api/session/${sessionId}/attendance`);
+          const response = await axios.get(`https://ideal-octo-meme.onrender.com/api/session/${sessionId}/attendance`);
           const attendanceData = response.data as any[];
           
           // Transform backend data to match our AttendanceRecord format
