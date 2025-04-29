@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import ExcelJS from 'exceljs';
 import { supabase } from './supabaseClient';
-
+import path from 'path';
 const app = express();
 
 app.use(cors());
@@ -20,6 +20,8 @@ interface MarkAttendanceBody {
     otp: string;
     sessionId: string;
 }
+
+
 
 // 1. Start Attendance Session
 // Start Attendance Session
@@ -160,6 +162,11 @@ app.get('/api/session/:id/attendance/download', async (req: any, res: any) => {
     res.end();
 });
 
+const __dirname1 = path.resolve();
+app.use(express.static(path.join(__dirname1, '../frontend/dist')));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname1, '../frontend','dist', 'index.html'));
+});
 
 // Start Server
 const PORT = process.env.PORT || 5000;
