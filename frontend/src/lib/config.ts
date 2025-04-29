@@ -1,0 +1,1 @@
+export const BACKEND_URL="https://ideal-octo-meme.onrender.com"

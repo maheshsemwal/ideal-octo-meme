@@ -13,6 +13,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import axios from "axios";
+import { BACKEND_URL } from "@/lib/config";
 
 export default function TeacherDashboard() {
   const [otpCountdown, setOtpCountdown] = useState(0);
@@ -193,7 +194,7 @@ export default function TeacherDashboard() {
     
     try {
       // Using the backend endpoint to get Excel file
-      window.location.href = `https://ideal-octo-meme.onrender.com/api/session/${currentSession.id}/attendance/download`;
+      window.location.href = `${BACKEND_URL}/api/session/${currentSession.id}/attendance/download`;
       
       toast({
         title: "Export Started",

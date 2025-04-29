@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
+import { BACKEND_URL } from "@/lib/config";
 
 const MarkAttendance = () => {
   const [searchParams] = useSearchParams();
@@ -32,7 +33,7 @@ const MarkAttendance = () => {
 
     setLoading(true);
     try {
-      const response = await fetch("https://ideal-octo-meme.onrender.com/api/mark-attendance", {
+      const response = await fetch(`${BACKEND_URL}/api/mark-attendance`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
